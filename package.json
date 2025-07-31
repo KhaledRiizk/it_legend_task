@@ -13,10 +13,11 @@
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-tailwindcss": "^3.18.2",
     "next": "15.4.5",
+    
     "prettier": "^3.6.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "react-player": "^3.3.1"
+    "react-player": "^2.10.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
