@@ -1,15 +1,21 @@
 "use client";
 
-import { videoList } from "@/constants/data";
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
+import Image from "next/image";
 
-interface Video {
+const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
+
+type Video = {
   id: string;
-  url: string;
   title: string;
-}
+  url: string;
+};
+
+type Props = {
+  videoList: Video[];
+  heading?: string;
+};
 
 type Progress = {
   played: number;
@@ -18,9 +24,10 @@ type Progress = {
   loadedSeconds: number;
 };
 
-const ReactPlayer = dynamic(() => import("react-player"), { ssr: false });
-
-const VideoPlayer = () => {
+const VideoPlayer: React.FC<Props> = ({
+  videoList,
+  heading = "Course Videos",
+}) => {
   const [currentVideo, setCurrentVideo] = useState<Video>(videoList[0]);
   const [isWatched, setIsWatched] = useState<Record<string, boolean>>({});
 
@@ -47,9 +54,9 @@ const VideoPlayer = () => {
 
   return (
     <div className="p-4 space-y-4">
-      <h1 className="text-2xl font-bold mb-4">Course Videos</h1>
+      <h1 className="text-2xl font-bold mb-4 max-sm:hidden">{heading}</h1>
       <div className="flex space-x-4">
-        <div className="w-1/3">
+        <div className="w-1/3 max-sm:hidden">
           <ul className="space-y-2">
             {videoList.map((video) => (
               <li
@@ -76,7 +83,8 @@ const VideoPlayer = () => {
             ))}
           </ul>
         </div>
-        <div className="w-2/3">
+        <div className="w-2/3 flex flex-col-reverse sm:flex-col max-sm:flex-1 max-sm:w-full">
+          <h2 className="text-3xl font-semibold my-4">{currentVideo.title}</h2>
           <ReactPlayer
             key={currentVideo.id}
             url={currentVideo.url}
