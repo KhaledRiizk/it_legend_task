@@ -1,6 +1,5 @@
 import VideoPlayer from "@/components/VideoPlayer";
 import { videoList } from "@/constants/data";
-import Image from "next/image";
 
 export default function Home() {
   return (
