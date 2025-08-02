@@ -91,7 +91,7 @@ const VideoPlayer: React.FC<Props> = ({
       {/* Drawer for mobile */}
       {drawerOpen && (
         <div className="fixed inset-0 z-50 bg-black/50 bg-opacity-40 sm:hidden">
-          <div className="absolute left-0 top-0 h-full w-[350px] bg-white shadow-lg p-4">
+          <div className="absolute left-0 top-0 h-full w-[350px] bg-white shadow-lg p-4 z-50">
             <button
               className="mb-4 px-2 py-1  rounded flex justify-self-end"
               onClick={() => setDrawerOpen(false)}
@@ -143,10 +143,11 @@ const VideoPlayer: React.FC<Props> = ({
           </div>
           {/* Click outside to close */}
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 z-40"
             onClick={() => setDrawerOpen(false)}
           />
         </div>
+
       )}
 
       <div className="flex space-x-4">
