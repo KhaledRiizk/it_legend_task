@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono as GeistMono } from "next/font/google";
+
 import "./globals.css";
+import BreadCrump from "@/components/BreadCrump";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +30,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <main>
-          <p className="p-6">breadCrump</p>
+          <BreadCrump />
           <div className="flex">
             <section className="flex min-h-screen flex-1 flex-col px-6 pb-6 pt-20 max-md:pb-14 sm:px-14">
               <div className="mx-auto w-full max-w-5xl">{children}</div>

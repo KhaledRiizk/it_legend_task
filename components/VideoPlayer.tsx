@@ -147,7 +147,6 @@ const VideoPlayer: React.FC<Props> = ({
             onClick={() => setDrawerOpen(false)}
           />
         </div>
-
       )}
 
       <div className="flex space-x-4">
