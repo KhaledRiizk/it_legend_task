@@ -28,7 +28,7 @@ const BreadCrump = () => {
           <BreadcrumbSeparator className="text-muted-foreground" />
           <BreadcrumbItem>
             <BreadcrumbLink
-              href="/components"
+              href="/"
               className="text-muted-foreground hover:text-foreground transition-colors font-medium"
             >
               Courses
